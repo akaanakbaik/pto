@@ -13,18 +13,21 @@
       }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/**",
-      "destination": "/server/index.ts"
+      "src": "/api/(.*)",
+      "dest": "/server/index.ts"
     },
     {
-      "source": "/static/**",
-      "destination": "/dist/public/**"
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
+      "dest": "/dist/public/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     },
     {
-      "source": "/**",
-      "destination": "/dist/public/index.html"
+      "src": "/(.*)",
+      "dest": "/dist/public/index.html"
     }
   ],
   "headers": [
