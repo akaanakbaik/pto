@@ -30,12 +30,6 @@
       "dest": "/dist/public/index.html"
     }
   ],
-  "functions": {
-    "server/index.ts": {
-      "memory": 512,
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
